@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "flet-auth"
+version = "0.1.0"
+description = "Authentication with python package flet"
+authors = ["Flavien HUGS <flavienhugs@pm.me>"]
+readme = "README.md"
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+flet = "^0.20.2"
+typer = "^0.9.0"
+
+[tool.poetry.scripts]
+app = 'src.cli:app'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+env_files = 'tests/.test.env'
+env_override_existing_values = 1
+python_files = "test_*.py"
+asyncio_mode = "auto"
+filterwarnings = [
+  "ignore",
+  "ignore:.*U.*mode is deprecated:DeprecationWarning"
+]
