@@ -1,4 +1,4 @@
-async def themeConfig(flet, page):
+def themeConfig(flet, page):
     instance_theme = flet.Theme()
 
     instance_theme.page_transitions.ios = flet.PageTransitionTheme.NONE

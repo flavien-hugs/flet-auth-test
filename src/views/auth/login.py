@@ -1,5 +1,5 @@
 import flet as ft
-from . import BaseView
+from src.views import BaseView
 
 
 class LoginView(BaseView):
@@ -7,9 +7,9 @@ class LoginView(BaseView):
         self,
         page: ft.Page,
         page_route="/",
-        page_icon="lock",
-        page_title="Login page",
-        page_footer="New to the app ? Register",
+        page_icon=ft.icons.LOCK,
+        page_title="Veuillez-vous connecter à votre compte.",
+        page_footer="Vous n'avez pas de compte ? Inscrivez-vous",
         route_to="/register"
     ):
         super().__init__(
