@@ -6,8 +6,6 @@ from src.views.auth import LoginView, RegisterView
 
 
 def mainPage(page: ft.Page) -> None:
-    page.title = "KEYCLOAK AUTH"
-    page.theme_mode = ft.ThemeMode.DARK
 
     themeConfig(flet=ft, page=page)
 
