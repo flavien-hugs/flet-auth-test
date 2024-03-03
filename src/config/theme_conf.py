@@ -2,7 +2,7 @@ WIDTH = 550
 HEIGHT = 850
 
 
-def themeConfig(flet, page):
+def theme_config(flet, page):
     page.scroll = flet.ScrollMode.ADAPTIVE
     instance_theme = flet.Theme()
 
@@ -20,6 +20,5 @@ def themeConfig(flet, page):
 
     page.window_max_width = WIDTH
     page.window_max_height = HEIGHT
-    # page.window_resizable = False
 
     page.theme_mode = flet.ThemeMode.DARK

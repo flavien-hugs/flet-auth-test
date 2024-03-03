@@ -1,11 +1,11 @@
 import flet as ft
 
-from .config import themeConfig
+from .config import theme_config
 from .views.auth import LoginView, RegisterView
 
 
 def mainPage(page: ft.Page) -> None:
-    themeConfig(flet=ft, page=page)
+    theme_config(flet=ft, page=page)
 
     login_page = LoginView(page)
     register_page = RegisterView(page)
