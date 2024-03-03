@@ -4,7 +4,8 @@ from .config import theme_config
 from .views.auth import LoginView, RegisterView
 
 
-def mainPage(page: ft.Page) -> None:
+def main_page(page: ft.Page) -> None:
+
     theme_config(flet=ft, page=page)
 
     login_page = LoginView(page)

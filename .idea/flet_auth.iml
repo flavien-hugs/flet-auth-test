@@ -5,4 +5,7 @@
     <orderEntry type="jdk" jdkName="Poetry (flet_auth)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="c236caa7-02a4-4aac-a625-40b1e5cb4900" />
+  </component>
 </module>
