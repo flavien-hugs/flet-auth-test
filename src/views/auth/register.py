@@ -8,9 +8,10 @@ class RegisterView(BaseView):
         page: ft.Page,
         page_route="/register",
         page_icon=ft.icons.PERSON_2_SHARP,
+        page_btn_text="S'inscrire",
         page_title="Hello ! Entrez votre mot de passe pour continuer.",
         page_footer="Vous aviez déjà un compte ? Connectez-vous.",
-        route_to="/"
+        route_to="/",
     ):
         super().__init__(
             page=page,
@@ -18,5 +19,6 @@ class RegisterView(BaseView):
             page_icon=page_icon,
             page_title=page_title,
             page_footer=page_footer,
-            route_to=route_to
+            page_btn_text=page_btn_text,
+            route_to=route_to,
         )

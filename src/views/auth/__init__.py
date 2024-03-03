@@ -1,2 +1,2 @@
-from .login import LoginView # noqa
-from .register import RegisterView # noqa
+from .login import LoginView  # noqa
+from .register import RegisterView  # noqa

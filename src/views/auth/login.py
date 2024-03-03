@@ -8,9 +8,10 @@ class LoginView(BaseView):
         page: ft.Page,
         page_route="/",
         page_icon=ft.icons.LOCK,
+        page_btn_text="Se connecter",
         page_title="Veuillez-vous connecter à votre compte.",
         page_footer="Vous n'avez pas de compte ? Inscrivez-vous",
-        route_to="/register"
+        route_to="/register",
     ):
         super().__init__(
             page=page,
@@ -18,5 +19,6 @@ class LoginView(BaseView):
             page_icon=page_icon,
             page_title=page_title,
             page_footer=page_footer,
-            route_to=route_to
+            page_btn_text=page_btn_text,
+            route_to=route_to,
         )

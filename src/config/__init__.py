@@ -1,1 +1,1 @@
-from .theme_conf import themeConfig # noqa
+from .theme_conf import themeConfig  # noqa

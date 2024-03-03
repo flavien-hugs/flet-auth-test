@@ -4,7 +4,6 @@ import flet as ft
 
 
 class BaseView(ft.View):
-
     def __init__(
         self,
         page: ft.Page,
@@ -12,92 +11,94 @@ class BaseView(ft.View):
         page_icon: str,
         page_title: str,
         page_footer: str,
-        route_to: str
+        page_btn_text: str,
+        route_to: str,
+        **kwargs
     ):
+        super().__init__(**kwargs)
+
         self.page = page
         self.page_icon = page_icon
         self.page_title = page_title
         self.page_footer = page_footer
+        self.page_btn_text = page_btn_text
         self.route_to = route_to
 
         self.image = ft.Icon(
             scale=ft.Scale(4),
             name=self.page_icon,
-            animate_scale=ft.Animation(duration=900, curve="decelerate")
+            animate_scale=ft.Animation(duration=900, curve="decelerate"),
         )
 
         self.password_field = ft.TextField(
             autofocus=True,
             password=True,
+            max_lines=1,
             can_reveal_password=True,
             cursor_color=ft.colors.WHITE,
             border_color=ft.colors.WHITE,
             label="Entrer votre mot de passe",
             tooltip="Entrer votre mot de passe",
             on_focus=lambda e: self.start_animation(),
-            on_blur=lambda e: self.stop_animation()
+            on_blur=lambda e: self.stop_animation(),
         )
+
+        self.btn_submit = ft.ElevatedButton(text=self.page_btn_text)
 
         self.running: bool
 
-        super().__init__()
-
         self.controls = [
             ft.SafeArea(
-                minimum=5,
                 content=ft.Column(
                     controls=[
                         ft.Row(
-                            alignment="end",
+                            alignment=ft.MainAxisAlignment.END,
                             controls=[
                                 ft.IconButton(
                                     scale=0.85,
                                     icon=ft.icons.DARK_MODE_ROUNDED,
-                                    on_click=lambda e: self.toggle_theme(e)
-                                )
-                            ]
-                        ),
-
-                        ft.Divider(height=50, color="transparent"),
-
-                        ft.Row(alignment="center", height=200, controls=[self.image]),
-                        ft.Row(
-                            alignment="center",
-                            controls=[
-                                ft.Text(self.page_title, size=16, weight="bold", text_align="center")
-                            ]
-                        ),
-
-                        ft.Divider(height=40, color=ft.colors.TRANSPARENT),
-
-                        ft.Row(
-                            alignment="center",
-                            controls=[
-                                ft.Column(
-                                    spacing=5,
-                                    controls=[
-                                        self.password_field
-                                    ]
+                                    on_click=lambda e: self.toggle_theme(e),
                                 )
                             ],
                         ),
-
-                        ft.Divider(height=180, color="transparent"),
-
+                        ft.Divider(height=50, color=ft.colors.TRANSPARENT),
                         ft.Row(
-                            alignment="center",
+                            alignment=ft.MainAxisAlignment.CENTER,
+                            height=150,
+                            controls=[self.image],
+                        ),
+                        ft.Row(
+                            alignment=ft.MainAxisAlignment.CENTER,
+                            controls=[ft.Text(self.page_title, size=16, weight="bold")],
+                        ),
+                        ft.Divider(height=40, color=ft.colors.TRANSPARENT),
+                        ft.Row(
+                            alignment=ft.MainAxisAlignment.CENTER,
+                            controls=[
+                                ft.Column(
+                                    controls=[self.password_field, self.btn_submit]
+                                )
+                            ],
+                        ),
+                        ft.Divider(height=50, color=ft.colors.TRANSPARENT),
+                        ft.Row(
+                            alignment=ft.MainAxisAlignment.CENTER,
                             controls=[
                                 ft.Text(
                                     self.page_footer,
                                     spans=[
                                         ft.TextSpan(
                                             " ici.",
-                                            style=ft.TextStyle(italic=False, decoration_style="solid", weight="w100"),
-                                            on_click=lambda e: self.routing()
+                                            style=ft.TextStyle(
+                                                italic=False,
+                                                decoration_style="solid",
+                                                weight="w100",
+                                            ),
+                                            on_click=lambda e: self.routing(),
                                         )
-                                    ]
+                                    ],
                                 )
-                            ]
+                            ],
                         ),
                     ]
                 )

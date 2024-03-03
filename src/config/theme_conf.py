@@ -1,7 +1,9 @@
-HEIGHT = 800
+WIDTH = 550
+HEIGHT = 850
 
 
 def themeConfig(flet, page):
+    page.scroll = flet.ScrollMode.ADAPTIVE
     instance_theme = flet.Theme()
 
     instance_theme.page_transitions.ios = flet.PageTransitionTheme.NONE
@@ -14,10 +16,9 @@ def themeConfig(flet, page):
 
     page.theme = instance_theme
 
-    page.auto_scroll = True
     page.title = "KEYCLOAK AUTH"
 
-    page.window_max_width = HEIGHT/2
+    page.window_max_width = WIDTH
     page.window_max_height = HEIGHT
     # page.window_resizable = False
 
